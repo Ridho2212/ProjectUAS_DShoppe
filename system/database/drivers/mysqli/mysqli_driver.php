@@ -58,7 +58,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	 *
 	 * @var	string
 	 */
-	public $dbdriver = 'mysqli';
+	public $dbdriver = 'db_umkm';
 
 	/**
 	 * Compression flag
