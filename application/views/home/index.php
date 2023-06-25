@@ -74,7 +74,9 @@
                                 <img src="<?php echo base_url('assets/images/logo1.png') ?>" alt="Logo">
                             </a>
 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false"
+                                aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
@@ -89,28 +91,29 @@
                                         <a class="page-scroll" href="#portfolio">Produk</a>
                                     </li>
                                     <?php if ($this->session->userdata('role') != 'admin') : ?>
-                                        <li class="nav-item">
-                                            <a class="page-scroll" href="<?= base_url('index.php/pesanan'); ?>">Pesanan</a>
-                                        </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="<?= base_url('index.php/pesanan'); ?>">Pesanan</a>
+                                    </li>
                                     <?php endif; ?>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#client">Suplier</a>
                                     </li>
                                     <?php if ($this->session->userdata('email')) : ?>
-                                        <?php if ($this->session->userdata('role') == 'admin') : ?>
-                                            <li class="nav-item">
-                                                <a class="page-scroll" href="<?= base_url('index.php/admin'); ?>">Admin</a>
-                                            </li>
-                                        <?php endif; ?>
+                                    <?php if ($this->session->userdata('role') == 'admin') : ?>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="<?= base_url('index.php/admin'); ?>">Admin</a>
+                                    </li>
+                                    <?php endif; ?>
                                     <?php endif; ?>
                                     <?php if (!$this->session->userdata('email')) : ?>
-                                        <li class="nav-item">
-                                            <a class="page-scroll" href="<?= base_url('index.php/auth/'); ?>">Login</a>
-                                        </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="<?= base_url('index.php/auth/'); ?>">Login</a>
+                                    </li>
                                     <?php else : ?>
-                                        <li class="nav-item">
-                                            <a class="page-scroll" href="<?= base_url('index.php/auth/logout'); ?>">Logout</a>
-                                        </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll"
+                                            href="<?= base_url('index.php/auth/logout'); ?>">Logout</a>
+                                    </li>
                                     <?php endif; ?>
                                 </ul>
                             </div>
@@ -195,13 +198,13 @@
                 <ul>
                     <li><a href="<?= base_url('index.php/home') ?>">Home</a></li>
                     <?php if ($this->session->userdata('role') != 'admin') : ?>
-                        <li><a href="<?= base_url('index.php/pesanan') ?>">Pesanan</a></li>
+                    <li><a href="<?= base_url('index.php/pesanan') ?>">Pesanan</a></li>
                     <?php endif; ?>
                     <!-- Jika role = 1, muncul navbar admin page -->
                     <?php if ($this->session->userdata('role') == 'admin') : ?>
-                        <li><a href="<?= base_url('index.php/produk/index') ?>">Produk</a></li>
-                        <li><a href="<?= base_url('index.php/suplier/index') ?>">Suplier</a></li>
-                        <li><a href="<?= base_url('index.php/admin') ?>">Admin</a></li>
+                    <li><a href="<?= base_url('index.php/produk/index') ?>">Produk</a></li>
+                    <li><a href="<?= base_url('index.php/suplier/index') ?>">Suplier</a></li>
+                    <li><a href="<?= base_url('index.php/admin') ?>">Admin</a></li>
                     <?php endif; ?>
                     <li><a href="<?= base_url('index.php/auth/logout') ?>">Logout</a></li>
                 </ul>
@@ -230,7 +233,9 @@
                     </div>
                     <div class="section-title text-center mt-30 pb-40">
                         <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">D'Shoppe</h4>
-                        <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Anda telah memilih yang tepat, D'Shoppe menyediakan fashion anda seperti sepatu, perhiasan, busana muslim, dan banyak lagi dari para desainer dan brand lokal dan internasional. </p>
+                        <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Anda telah memilih
+                            yang tepat, D'Shoppe menyediakan fashion anda seperti sepatu, perhiasan, busana muslim, dan
+                            banyak lagi dari para desainer dan brand lokal dan internasional. </p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -267,34 +272,41 @@
             <div class="row grid">
                 <!-- Tampilkan seluruh data dari table produk -->
                 <?php foreach ($produk as $pr) : ?>
-                    <div class="col-lg-4 col-sm-6 <?= ($pr->jenis_id == 1) ? 'branding-3' : (($pr->jenis_id == 2) ? 'marketing-3' : (($pr->jenis_id == 3) ? 'planning-3' : 'research-3')) ?>">
-                        <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                            <div class="portfolio-image">
-                                <img src="<?php echo base_url('assets/images/' . $pr->foto) ?>" alt="">
-                                <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                    <div class="portfolio-content">
-                                        <div class="portfolio-icon">
-                                            <a class="image-popup" href="<?php echo base_url('assets/images/' . $pr->foto) ?>"><i class="lni-zoom-in"></i></a>
-                                        </div>
-                                        <div class="portfolio-icon">
-                                            <a href="<?php echo base_url('index.php/produk/detail/' . $pr->id) ?>"><i class="lni-link"></i></a>
-                                        </div>
+                <div
+                    class="col-lg-4 col-sm-6 <?= ($pr->jenis_id == 1) ? 'branding-3' : (($pr->jenis_id == 2) ? 'marketing-3' : (($pr->jenis_id == 3) ? 'planning-3' : 'research-3')) ?>">
+                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                        <div class="portfolio-image">
+                            <img src="<?php echo base_url('assets/images/' . $pr->foto) ?>" alt="">
+                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                                <div class="portfolio-content">
+                                    <div class="portfolio-icon">
+                                        <a class="image-popup"
+                                            href="<?php echo base_url('assets/images/' . $pr->foto) ?>"><i
+                                                class="lni-zoom-in"></i></a>
+                                    </div>
+                                    <div class="portfolio-icon">
+                                        <a href="<?php echo base_url('index.php/produk/detail/' . $pr->id) ?>"><i
+                                                class="lni-link"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="portfolio-text">
-                                <form action="<?= base_url('index.php/pesanan/form') ?>" method="post">
-                                    <input type="hidden" name="id" value="<?= $pr->id ?>">
-                                    <div class="d-flex justify-content-between">
-                                        <a href="<?php echo base_url("index.php/pesanan/form") ?>"><input type="submit" class="btn btn-primary active" value="Checkout"></a>
-                                        <p>IDR&nbsp;<b style="color: blue; font-size: large;"><?= number_format($pr->harga_jual) ?></b></p>
-                                    </div>
-                                </form>
-                                <h4 class="portfolio-title"><a href="#"><?= $pr->nama ?></a></h4>
-                                <p class="text"><?= $pr->deskripsi ?></p>
-                            </div>
+                        </div>
+                        <div class="portfolio-text">
+                            <form action="<?= base_url('index.php/pesanan/form') ?>" method="post">
+                                <input type="hidden" name="id" value="<?= $pr->id ?>">
+                                <div class="d-flex justify-content-between">
+                                    <a href="<?php echo base_url("index.php/pesanan/form") ?>"><input type="submit"
+                                            class="btn btn-primary active" value="Checkout"></a>
+                                    <p>IDR&nbsp;<b
+                                            style="color: blue; font-size: large;"><?= number_format($pr->harga_jual) ?></b>
+                                    </p>
+                                </div>
+                            </form>
+                            <h4 class="portfolio-title"><a href="#"><?= $pr->nama ?></a></h4>
+                            <p class="text"><?= $pr->deskripsi ?></p>
                         </div>
                     </div>
+                </div>
                 <?php endforeach; ?>
                 <!-- <div class="col-lg-4 col-sm-6 branding-3">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
@@ -531,20 +543,26 @@
                     <div class="row align-items-center">
                         <div class="col-lg-5">
                             <div class="copyright text-center text-lg-left mt-10">
-                                <p class="text">Crafted by <a style="color: #38f9d7" rel="nofollow" href="<?php echo base_url('https://uideck.con') ?>">D'Shoppe</a></p>
+                                <p class="text">Crafted by <a style="color: #38f9d7" rel="nofollow"
+                                        href="<?php echo base_url('https://uideck.con') ?>">D'Shoppe</a></p>
                             </div> <!--  copyright -->
                         </div>
                         <div class="col-lg-2">
                             <div class="footer-logo text-center mt-10">
-                                <a href="<?php echo base_url('index.html') ?>"><img src="<?php echo base_url('assets/images/logo1.png') ?>" alt="Logo"></a>
+                                <a href="<?php echo base_url('index.html') ?>"><img
+                                        src="<?php echo base_url('assets/images/logo1.png') ?>" alt="Logo"></a>
                             </div> <!-- footer logo -->
                         </div>
                         <div class="col-lg-5">
                             <ul class="social text-center text-lg-right mt-10">
-                                <li><a href="https://www.facebook.com/sttterpadunf/"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="https://www.twitter.com/sttterpadunf/"><i class="lni-twitter-original"></i></a></li>
-                                <li><a href="https://www.instagram.com/sttterpadunf/"><i class="lni-instagram-original"></i></a></li>
-                                <li><a href="https://www.linkedin.com/sttterpadunf/"><i class="lni-linkedin-original"></i></a></li>
+                                <li><a href="https://www.facebook.com/sttterpadunf/"><i
+                                            class="lni-facebook-filled"></i></a></li>
+                                <li><a href="https://www.twitter.com/sttterpadunf/"><i
+                                            class="lni-twitter-original"></i></a></li>
+                                <li><a href="https://www.instagram.com/sttterpadunf/"><i
+                                            class="lni-instagram-original"></i></a></li>
+                                <li><a href="https://www.linkedin.com/sttterpadunf/"><i
+                                            class="lni-linkedin-original"></i></a></li>
                             </ul> <!-- social -->
                         </div>
                     </div> <!-- row -->
