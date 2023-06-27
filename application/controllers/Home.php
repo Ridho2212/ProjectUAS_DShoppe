@@ -13,10 +13,7 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $produk = $this->produk->getAll();
-        $data['produk'] = $produk;
-        
-        $this->load->view('home/index', $data);
+        $this->load->view('home/index',);
     }
 
     public function produk()
